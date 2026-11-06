@@ -31,40 +31,6 @@ body {
     overflow: hidden;
 }
 
-/* Modal Sign-In Layout Overlay */
-.overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(4, 5, 7, 0.95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.login-box {
-    background: var(--bg-navigation);
-    padding: 40px;
-    border-radius: 16px;
-    width: 400px;
-    text-align: center;
-    border: 1px solid var(--border-ui);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-.login-logo {
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-}
-.login-logo span { color: var(--accent-glow); }
-
-.login-box h2 { font-size: 22px; margin-bottom: 8px; }
-.login-box p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
-#google-btn { display: flex; justify-content: center; }
-
-/* Dashboard Structural Configuration */
 #app-container {
     display: flex;
     height: 100vh;
@@ -87,7 +53,11 @@ body {
 }
 .logo span { color: var(--accent-glow); }
 
-.menu { flex: 1; overflow-y: auto; }
+.menu { 
+    flex: 1; 
+    overflow-y: auto; 
+}
+
 .menu-label {
     font-size: 11px;
     text-transform: uppercase;
@@ -109,14 +79,19 @@ body {
     transition: all 0.2s ease;
 }
 
-.nav-item i { margin-right: 14px; font-size: 16px; width: 20px; text-align: center; }
+.nav-item i { 
+    margin-right: 14px; 
+    font-size: 16px; 
+    width: 20px; 
+    text-align: center; 
+}
+
 .nav-item:hover, .nav-item.active {
     background-color: var(--item-active);
     color: var(--text-primary);
 }
 .nav-item.active i { color: var(--accent-glow); }
 
-/* Workspace Platform Container Styles */
 .content {
     flex: 1;
     padding: 40px;
@@ -129,7 +104,7 @@ body {
 .panel-header h2 { font-size: 26px; margin-bottom: 8px; }
 .panel-header p { color: var(--text-muted); font-size: 15px; }
 
-.welcome-screen { text-align: center; margin-top: 15vh; }
+.welcome-screen { text-align: center; margin-top: 10vh; }
 .welcome-screen h1 { font-size: 38px; font-weight: 700; margin-bottom: 12px; }
 .welcome-screen p { color: var(--text-muted); font-size: 16px; }
 
@@ -156,7 +131,14 @@ body {
 .pill:hover { background: var(--item-active); }
 .pill i { color: var(--accent-glow); }
 
-/* Interface Command Entry Bar */
+.chat-display {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    padding-right: 10px;
+}
+
 .input-dock {
     position: absolute;
     bottom: 40px;
@@ -215,7 +197,6 @@ body {
 }
 .submit-btn:hover { transform: scale(1.05); }
 
-/* User Profile Module Footer */
 .user-profile {
     margin-top: auto;
     display: flex;
@@ -224,12 +205,21 @@ body {
     padding-top: 16px;
     border-top: 1px solid var(--border-ui);
 }
-.user-profile img { width: 42px; height: 42px; border-radius: 50%; background: #222; }
+
+.user-avatar-placeholder {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--item-active);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-glow);
+}
+
 .user-info { display: flex; flex-direction: column; }
 .user-info span { font-weight: 600; font-size: 14px; }
 .user-info small { color: var(--text-muted); font-size: 11px; }
 
-/* Control Visibility Classes */
-.hidden { display: none !important; }
 .hidden-tab { display: none; }
 .active-tab { display: block; }
