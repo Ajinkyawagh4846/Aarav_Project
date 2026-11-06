@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapriCorn.AI Dashboard</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-overlay" class="overlay">
+        <div class="login-box">
+            <div class="login-logo"><i class="fa-solid fa-shapes"></i> CapriCorn<span>.AI</span></div>
+            <h2>Welcome Back</h2>
+            <p>Please log in with your Google account to access your workspace.</p>
+            <div id="google-btn"></div>
+        </div>
+    </div>
+
+    <div id="app-container" class="hidden">
+        
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-shapes"></i> CapriCorn<span>.AI</span>
+            </div>
+            
+            <nav class="menu">
+                <p class="menu-label">Core Engine</p>
+                <a href="#" class="nav-item active" onclick="switchTab('omni-chat')"><i class="fa-solid fa-comments"></i> Omni Chat</a>
+                <a href="#" class="nav-item" onclick="switchTab('code-architect')"><i class="fa-solid fa-code"></i> Code Architect</a>
+                <a href="#" class="nav-item" onclick="switchTab('dream-canvas')"><i class="fa-solid fa-wand-magic-sparkles"></i> Dream Canvas</a>
+                <a href="#" class="nav-item" onclick="switchTab('video-generator')"><i class="fa-solid fa-clapperboard"></i> Video Generator</a>
+                
+                <p class="menu-label">Productivity Hub</p>
+                <a href="#" class="nav-item" onclick="switchTab('homework-help')"><i class="fa-solid fa-graduation-cap"></i> Homework Help</a>
+                <a href="#" class="nav-item" onclick="switchTab('office-help')"><i class="fa-solid fa-briefcase"></i> Office Help</a>
+                <a href="#" class="nav-item" onclick="switchTab('app-writer')"><i class="fa-solid fa-pen-nib"></i> Application Writer</a>
+                
+                <p class="menu-label">Media & Feed</p>
+                <a href="#" class="nav-item" onclick="switchTab('camera-roll')"><i class="fa-solid fa-images"></i> Camera Roll</a>
+                <a href="#" class="nav-item" onclick="switchTab('live-feature')"><i class="fa-solid fa-tower-broadcast"></i> Live Feature</a>
+                
+                <p class="menu-label">Preferences</p>
+                <a href="#" class="nav-item" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="theme-icon"></i> Appearance</a>
+                <a href="#" class="nav-item" onclick="switchTab('settings')"><i class="fa-solid fa-sliders"></i> Settings</a>
+            </nav>
+
+            <div class="user-profile">
+                <img id="user-avatar" src="" alt="Profile Avatar">
+                <div class="user-info">
+                    <span id="user-name">Guest User</span>
+                    <small>Premium Account</small>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            
+            <section id="omni-chat" class="tab-content active-tab">
+                <div class="welcome-screen">
+                    <h1>Good Evening, <span id="greet-name">Explorer</span>! 👋</h1>
+                    <p>What would you like to create or explore today?</p>
+                    <div class="pill-container">
+                        <span class="pill"><i class="fa-solid fa-brain"></i> Smart</span>
+                        <span class="pill"><i class="fa-solid fa-bolt"></i> Fast</span>
+                        <span class="pill"><i class="fa-solid fa-fire"></i> Powerful</span>
+                        <span class="pill"><i class="fa-solid fa-shield-halved"></i> Private</span>
+                    </div>
+                </div>
+                <div class="chat-display" id="chat-output"></div>
+            </section>
+
+            <section id="code-architect" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-code"></i> Code Architect</h2>
+                    <p>Generate clean, production-ready modules in any framework or script language.</p>
+                </div>
+            </section>
+
+            <section id="dream-canvas" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Dream Canvas</h2>
+                    <p>Generate hyper-realistic environments or tailored illustrations from natural language instructions.</p>
+                </div>
+            </section>
+
+            <section id="video-generator" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-clapperboard"></i> Video Generator</h2>
+                    <p>Convert descriptive storyboards directly into fluid high-definition dynamic video assets.</p>
+                </div>
+            </section>
+
+            <section id="homework-help" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-graduation-cap"></i> Homework Help</h2>
+                    <p>Drop your complex academic assignments here for systematic step-by-step verified solutions.</p>
+                </div>
+            </section>
+
+            <section id="office-help" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-briefcase"></i> Office Help</h2>
+                    <p>Optimize professional schedules, draft memos, or synthesize structural project documentation.</p>
+                </div>
+            </section>
+
+            <section id="app-writer" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-pen-nib"></i> Application Writer</h2>
+                    <p>Draft high-impact custom job cover letters, academic permissions, or official legal letters.</p>
+                </div>
+            </section>
+
+            <section id="camera-roll" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-images"></i> Camera Roll</h2>
+                    <p>Manage, categorize, or view your history of generated images and graphic project assets.</p>
+                </div>
+            </section>
+
+            <section id="live-feature" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-tower-broadcast"></i> Live Feature</h2>
+                    <p>Establish modern real-time context streaming feeds directly to external cloud channels.</p>
+                </div>
+            </section>
+
+            <section id="settings" class="tab-content hidden-tab">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-sliders"></i> Settings</h2>
+                    <p>Adjust developer system preferences, security authorization configurations, and API integrations.</p>
+                </div>
+            </section>
+
+            <div class="input-dock">
+                <button class="dock-btn"><i class="fa-solid fa-plus"></i></button>
+                <input type="text" id="chat-input" placeholder="Ask CapriCorn anything...">
+                <button class="dock-btn context-btn"><i class="fa-solid fa-layer-group"></i> Context</button>
+                <button class="dock-btn mic-btn"><i class="fa-solid fa-microphone"></i></button>
+                <button class="submit-btn" onclick="executePromptSubmission()"><i class="fa-solid fa-arrow-up"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
